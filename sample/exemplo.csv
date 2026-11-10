@@ -1,0 +1,25 @@
+Mês,Região,Cidade,Clientes,Receita,Chamados,Satisfação
+2026-01-01,Norte,Manaus,420,186000,38,4.2
+2026-01-01,Nordeste,Recife,610,254000,51,4.0
+2026-01-01,Sudeste,São Paulo,980,512000,72,3.8
+2026-01-01,Sul,Curitiba,540,241000,29,4.5
+2026-02-01,Norte,Belém,390,171000,33,4.3
+2026-02-01,Nordeste,Salvador,670,288000,47,4.1
+2026-02-01,Sudeste,Rio de Janeiro,860,447000,64,3.9
+2026-02-01,Sul,Porto Alegre,510,229000,26,4.6
+2026-03-01,Norte,Manaus,450,198000,31,4.4
+2026-03-01,Nordeste,Fortaleza,640,273000,44,4.2
+2026-03-01,Sudeste,Belo Horizonte,730,361000,41,4.1
+2026-03-01,Sul,Florianópolis,480,236000,22,4.7
+2026-04-01,Norte,Manaus,470,209000,36,4.1
+2026-04-01,Nordeste,Recife,700,305000,49,4.0
+2026-04-01,Sudeste,São Paulo,1040,548000,80,3.7
+2026-04-01,Sul,Curitiba,560,252000,27,4.5
+2026-05-01,Norte,Belém,410,184000,30,4.4
+2026-05-01,Nordeste,Salvador,720,319000,42,4.3
+2026-05-01,Sudeste,Campinas,690,334000,35,4.2
+2026-05-01,Sul,Porto Alegre,530,247000,24,4.6
+2026-06-01,Norte,Manaus,495,221000,28,4.5
+2026-06-01,Nordeste,Fortaleza,760,341000,39,4.4
+2026-06-01,Sudeste,São Paulo,1110,590000,68,4.0
+2026-06-01,Sul,Joinville,500,239000,21,4.8

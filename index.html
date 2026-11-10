@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nova Rede — Dashboard de planilhas</title>
+  <meta name="description" content="Envie uma planilha e veja indicadores, gráficos e a tabela em uma página. Os dados ficam no seu navegador.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23145c4a'/%3E%3Cpath d='M7 22V10h4.2l4.8 7.2L20.8 10H25v12h-3.2v-6.8L17.6 22h-3.2l-4.2-6.8V22H7z' fill='%23f3efe4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,680&family=Outfit:wght@380;480;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <div>
+        <p class="eyebrow">Nova Rede</p>
+        <h1>Dashboard de planilhas</h1>
+      </div>
+    </div>
+    <div class="top-actions">
+      <button type="button" class="btn ghost" id="btn-sample">Carregar exemplo</button>
+      <label class="btn solid" for="file-input">Enviar planilha</label>
+      <input id="file-input" type="file" accept=".xlsx,.xls,.csv,.tsv,text/csv,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" hidden>
+    </div>
+  </header>
+
+  <main>
+    <section class="drop" id="dropzone">
+      <div class="drop-copy">
+        <p class="eyebrow">Comece por aqui</p>
+        <h2>Arraste uma planilha para esta página</h2>
+        <p>Aceita Excel (.xlsx, .xls) e CSV. A primeira linha precisa ser o cabeçalho. Nada é enviado a um servidor: a leitura acontece neste navegador.</p>
+      </div>
+      <ul class="hints">
+        <li>Colunas de texto viram grupos e fatias.</li>
+        <li>Colunas numéricas viram indicadores e barras.</li>
+        <li>Datas montam a evolução no tempo.</li>
+      </ul>
+    </section>
+
+    <p class="status" id="status" role="status" hidden></p>
+
+    <section class="workspace" id="workspace" hidden>
+      <div class="toolbar">
+        <div class="file-pill">
+          <strong id="file-name">planilha</strong>
+          <span id="file-meta"></span>
+        </div>
+        <label class="field" id="sheet-field" hidden>
+          Aba
+          <select id="sheet-select"></select>
+        </label>
+        <label class="field">
+          Agrupar por
+          <select id="group-select"></select>
+        </label>
+        <label class="field">
+          Métrica
+          <select id="metric-select"></select>
+        </label>
+        <label class="field">
+          Cálculo
+          <select id="agg-select">
+            <option value="sum">Soma</option>
+            <option value="avg">Média</option>
+            <option value="count">Contagem</option>
+          </select>
+        </label>
+        <label class="field grow">
+          Buscar na tabela
+          <input id="search" type="search" placeholder="Filtrar linhas...">
+        </label>
+        <button type="button" class="btn ghost" id="btn-clear">Limpar</button>
+      </div>
+
+      <div class="chips" id="column-chips"></div>
+      <p class="insight" id="insight"></p>
+
+      <div class="kpis" id="kpis"></div>
+
+      <div class="charts">
+        <article class="card chart-card wide">
+          <header>
+            <h3 id="main-title">Comparativo</h3>
+            <p id="main-sub"></p>
+          </header>
+          <div class="canvas-wrap tall"><canvas id="chart-main"></canvas></div>
+        </article>
+        <article class="card chart-card">
+          <header>
+            <h3 id="share-title">Participação</h3>
+            <p id="share-sub"></p>
+          </header>
+          <div class="canvas-wrap"><canvas id="chart-share"></canvas></div>
+        </article>
+        <article class="card chart-card wide" id="trend-card">
+          <header>
+            <h3 id="trend-title">Evolução</h3>
+            <p id="trend-sub"></p>
+          </header>
+          <div class="canvas-wrap"><canvas id="chart-trend"></canvas></div>
+        </article>
+      </div>
+
+      <article class="card table-card">
+        <header class="table-head">
+          <div>
+            <h3>Dados</h3>
+            <p id="table-meta"></p>
+          </div>
+        </header>
+        <div class="table-scroll">
+          <table id="data-table">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="pager">
+          <button type="button" class="btn ghost" id="page-prev">Anterior</button>
+          <span id="page-label"></span>
+          <button type="button" class="btn ghost" id="page-next">Próxima</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Feito para publicar no GitHub Pages. A planilha permanece no seu computador.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
